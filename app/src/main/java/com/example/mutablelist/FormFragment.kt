@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.core.widget.addTextChangedListener
 import com.example.mutablelist.databinding.FormBinding
 
 class FormFragment : Fragment() {
@@ -27,8 +29,15 @@ class FormFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity())[ViewModelList::class.java]
+        with(binding) {
+            nextBtn.setOnClickListener {
+                val firstNameStr = firstNameEt.editText.toString()
+                val lastNameStr = lastNameEt.editText.toString()
+                viewModel.addName(firstNameStr, lastNameStr)
+            }
+        }
     }
-
 
 
     override fun onDestroyView() {
