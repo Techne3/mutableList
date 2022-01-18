@@ -8,17 +8,33 @@ import androidx.lifecycle.ViewModel
 class ViewModelList : ViewModel() {
 
 
-    private  val _nameList = mutableListOf<String>()
-    val names = MutableLiveData<List<String>>()
+    private var _firstName: MutableLiveData<List<String>> = MutableLiveData()
+    val firstName: LiveData<List<String>> get() = _firstName
+    private val arrFirstName = mutableListOf<String>()
 
-init {
-    names.value = _nameList
-}
+    private var _lastName: MutableLiveData<List<String>> = MutableLiveData()
+    val lastName: LiveData<List<String>> get() = _lastName
+    private val arrLastName = mutableListOf<String>()
 
-    fun addName(first: String, last: String) {
-        _nameList.add(last)
-        _nameList.add(first)
-        names.value = _nameList
+
+    fun addName(firstName: String, lastName: String) {
+        arrFirstName.add(firstName)
+        arrLastName.add(lastName)
+
+        for (i in 0 until arrFirstName.size) {
+            _firstName.value = arrFirstName
+        }
+        for (j in 0 until arrLastName.size) {
+            _lastName.value = arrLastName
+        }
     }
 
 }
+
+
+
+
+
+
+
+

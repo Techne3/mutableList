@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.core.widget.addTextChangedListener
 import com.example.mutablelist.databinding.FormBinding
 
 class FormFragment : Fragment() {

@@ -1,19 +1,6 @@
-package com.example.mutablelist
+package com.example.viewmodeltwofragments_jan10.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import com.example.mutablelist.R
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-    if(savedInstanceState == null){
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragment_container_view, FormFragment() )
-            .commit()
-    }
-
-    }
-}
+class MainActivity : AppCompatActivity(R.layout.activity_main)
